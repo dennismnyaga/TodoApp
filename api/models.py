@@ -7,7 +7,7 @@ class Task(models.Model):
     stop_time = models.TimeField()
     start_date = models.DateField()
     stop_date = models.DateField()
-    complete = models.BooleanField(null=True, blank=True)
+    complete = models.BooleanField(default=False,  null=True, blank=True)
 
     def __str__(self):
         return self.task
