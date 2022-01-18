@@ -24,7 +24,6 @@ def todoList(request):
     serializer = TaskSerializer(todos, many=True)
     return Response(serializer.data)
 
-# -----------------------------------------------------
 
 @api_view(['GET'])
 def todoDetail(request, pk):
@@ -33,7 +32,7 @@ def todoDetail(request, pk):
 	return Response(serializer.data)
 
 
-@api_view(['POST'])
+@api_view(['GET','POST'])
 def todoCreate(request):
 	serializer = TaskSerializer(data=request.data)
 
@@ -42,7 +41,7 @@ def todoCreate(request):
 
 	return Response(serializer.data)
 
-@api_view(['POST'])
+@api_view(['GET','POST'])
 def todoUpdate(request, pk):
 	task = Task.objects.get(id=pk)
 	serializer = TaskSerializer(instance=task, data=request.data)
