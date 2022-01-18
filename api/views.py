@@ -32,7 +32,7 @@ def todoDetail(request, pk):
 	return Response(serializer.data)
 
 
-@api_view(['GET','POST'])
+@api_view(['POST'])
 def todoCreate(request):
 	serializer = TaskSerializer(data=request.data)
 
