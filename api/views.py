@@ -41,7 +41,7 @@ def todoCreate(request):
 
 	return Response(serializer.data)
 
-@api_view(['GET','POST'])
+@api_view(['POST'])
 def todoUpdate(request, pk):
 	task = Task.objects.get(id=pk)
 	serializer = TaskSerializer(instance=task, data=request.data)
